@@ -8,7 +8,7 @@ if [[ ! -f "$CONFIG" ]]; then
   exit 1
 fi
 
-export_json() {
+read_config() {
   python3 - "$CONFIG" "$1" <<'PY'
 import json, sys
 cfg = json.load(open(sys.argv[1]))
@@ -25,12 +25,14 @@ write_env() {
   fi
 }
 
-write_env XCODE_ZIP "$(export_json "$CONFIG" xcodeZip)"
-write_env XCODE_SRC "$(export_json "$CONFIG" xcodeSrc)"
-write_env XCODE_PROJECT "$(export_json "$CONFIG" xcodeProject)"
-write_env SCHEME "$(export_json "$CONFIG" scheme)"
-write_env APP_NAME "$(export_json "$CONFIG" appName)"
-write_env OUTPUT_IPA "Xcode-Output/$(export_json "$CONFIG" outputIpa)"
-write_env ARTIFACT_NAME "$(export_json "$CONFIG" artifactName)"
+write_env XCODE_ZIP "$(read_config xcodeZip)"
+write_env XCODE_SRC "$(read_config xcodeSrc)"
+write_env XCODE_PROJECT "$(read_config xcodeProject)"
+write_env SCHEME "$(read_config scheme)"
+write_env APP_NAME "$(read_config appName)"
+write_env OUTPUT_IPA "Xcode-Output/$(read_config outputIpa)"
+write_env ARTIFACT_NAME "$(read_config artifactName)"
 
 echo "Loaded build config from $CONFIG"
+echo "  XCODE_SRC=$XCODE_SRC"
+echo "  APP_NAME=$APP_NAME"
