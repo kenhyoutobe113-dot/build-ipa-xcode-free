@@ -1,0 +1,88 @@
+# Build iOS IPA on GitHub macOS runner.
+# Local: place zip in Xcode-Input/ -> double-click run.bat
+
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Xcode-Input/**"
+      - "tool/build-config.json"
+      - "scripts/**"
+      - ".github/workflows/build-ipa.yml"
+  workflow_dispatch:
+    inputs:
+      upload_appstore:
+        description: Upload to App Store Connect after build
+        type: boolean
+        default: false
+
+jobs:
+  build-ipa:
+    runs-on: macos-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout (with Git LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Load build config
+        run: bash scripts/load-build-config.sh tool/build-config.json
+
+      - name: Extract Xcode project
+        run: |
+          if [ ! -d "$XCODE_SRC/$XCODE_PROJECT" ]; then
+            echo "Extracting $XCODE_ZIP ..."
+            unzip -q -o "$XCODE_ZIP" -d Xcode-Input/extracted
+          else
+            echo "Xcode source already present at $XCODE_SRC"
+          fi
+          test -d "$XCODE_SRC/$XCODE_PROJECT" || { echo "Xcode project not found at $XCODE_SRC/$XCODE_PROJECT"; exit 1; }
+
+      - name: Select Xcode
+        run: |
+          sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+          xcodebuild -version
+
+      - name: Install signing assets
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          if [ -z "${BUILD_CERTIFICATE_BASE64}" ]; then
+            echo "::error::Missing signing secrets in GitHub repo Settings."
+            exit 1
+          fi
+          bash scripts/setup-signing.sh
+
+      - name: Build and pack IPA (Payload)
+        working-directory: ${{ env.XCODE_SRC }}
+        env:
+          XCODE_PROJECT: ${{ env.XCODE_PROJECT }}
+          SCHEME: ${{ env.SCHEME }}
+          APP_NAME: ${{ env.APP_NAME }}
+          DEVELOPMENT_TEAM: ${{ secrets.DEVELOPMENT_TEAM }}
+          PROVISIONING_PROFILE_SPECIFIER: ${{ secrets.PROVISIONING_PROFILE_SPECIFIER }}
+          OUTPUT_IPA: ${{ github.workspace }}/${{ env.OUTPUT_IPA }}
+        run: bash "${{ github.workspace }}/scripts/build-and-pack-ipa-payload.sh"
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.OUTPUT_IPA }}
+          retention-days: 14
+
+      - name: Upload to App Store Connect
+        if: github.event_name == 'workflow_dispatch' && inputs.upload_appstore == true
+        env:
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          IPA_FILE: ${{ github.workspace }}/${{ env.OUTPUT_IPA }}
+        run: bash scripts/upload-appstore.sh
