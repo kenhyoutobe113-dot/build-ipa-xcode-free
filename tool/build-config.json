@@ -1,4 +1,4 @@
-﻿{
+{
     "xcodeZip":  "Xcode-Input/Uron-Xcode-24-06-2026.zip",
     "xcodeSrc":  "Xcode-Input/extracted/Uron-Xcode-24-06-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
@@ -7,5 +7,5 @@
     "outputIpa":  "HuyenThoaiUron.ipa",
     "artifactName":  "HuyenThoaiUron-ipa",
     "bundleId":  "com.huyenthoai.uron",
-    "detectedAt":  "2026-06-24T05:40:54.2548787+07:00"
+    "detectedAt":  "2026-06-24T05:59:51.0249836+07:00"
 }

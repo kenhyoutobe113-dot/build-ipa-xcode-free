@@ -81,7 +81,10 @@ try {
 
 $outDir = Split-Path $OutputConfig -Parent
 if ($outDir -and -not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir -Force | Out-Null }
-$config | ConvertTo-Json -Depth 3 | Set-Content -Path $OutputConfig -Encoding UTF8
+$json = $config | ConvertTo-Json -Depth 3
+$outPath = Join-Path (Get-Location) $OutputConfig
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText($outPath, $json, $utf8NoBom)
 
 Write-Host "[detect] xcodeProject : $($config.xcodeProject)"
 Write-Host "[detect] scheme       : $($config.scheme)"

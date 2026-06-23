@@ -11,7 +11,8 @@ fi
 read_config() {
   python3 - "$CONFIG" "$1" <<'PY'
 import json, sys
-cfg = json.load(open(sys.argv[1]))
+with open(sys.argv[1], encoding="utf-8-sig") as f:
+    cfg = json.load(f)
 print(cfg[sys.argv[2]])
 PY
 }
