@@ -140,3 +140,8 @@ Write-Host ""
 Write-Host "SUCCESS" -ForegroundColor Green
 Write-Host "  IPA : $dest"
 Write-Host "  Size: $([math]::Round((Get-Item $dest).Length / 1MB, 2)) MB"
+if ($cfg.unsignedBuild) {
+    Write-Host ""
+    Write-Host "IPA is UNSIGNED — user must re-sign before install:" -ForegroundColor Yellow
+    Write-Host "  Sideloadly, AltStore, 3uTools, ESign (personal Apple ID / dev cert)"
+}

@@ -1,6 +1,7 @@
 {
   "branch": "main",
   "workflowFile": "build-ipa.yml",
+  "unsignedBuild": true,
   "uploadAppStore": false,
   "pollIntervalSeconds": 15,
   "maxWaitMinutes": 90
