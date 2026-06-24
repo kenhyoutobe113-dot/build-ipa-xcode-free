@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Uron-Xcode-24-06-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Uron-Xcode-24-06-2026",
+    "xcodeZip":  "Xcode-Input/NroXanhChin-Xcode-23-06-2026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/NroXanhChin-Xcode-23-06-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "HuyenThoaiUron.app",
-    "outputIpa":  "HuyenThoaiUron.ipa",
-    "artifactName":  "HuyenThoaiUron-ipa",
-    "bundleId":  "com.huyenthoai.uron",
-    "detectedAt":  "2026-06-24T05:59:51.0249836+07:00"
+    "appName":  "xanhchin.app",
+    "outputIpa":  "xanhchin.ipa",
+    "artifactName":  "xanhchin-ipa",
+    "bundleId":  "com.xanhchin.cbro",
+    "detectedAt":  "2026-06-24T13:34:24.3695849+07:00"
 }
