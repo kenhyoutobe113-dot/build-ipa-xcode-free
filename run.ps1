@@ -1,4 +1,4 @@
-# One-click: Xcode zip in Xcode-Input -> GitHub Actions build -> IPA in Xcode-Output
+﻿# One-click: Xcode zip in Xcode-Input -> GitHub Actions build -> IPA in Xcode-Output
 param(
     [switch]$UploadAppStore,
     [switch]$SkipPush,
