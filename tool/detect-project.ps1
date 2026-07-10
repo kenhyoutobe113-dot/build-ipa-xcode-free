@@ -44,9 +44,9 @@ try {
     $pbxText = $pbxEntry.Text
     $appName = "App.app"
     if ($pbxText -match 'PRODUCT_NAME_APP\s*=\s*([^;]+);') {
-        $appName = ($Matches[1].Trim() -replace '\s', '') + ".app"
+        $appName = ($Matches[1].Trim().Trim('"') -replace '\s', '') + ".app"
     } elseif ($pbxText -match 'PRODUCT_NAME\s*=\s*"?([^";\s]+)"?;') {
-        $appName = ($Matches[1].Trim() -replace '\$\([^)]+\)', 'App') + ".app"
+        $appName = ($Matches[1].Trim().Trim('"') -replace '\$\([^)]+\)', 'App') + ".app"
     }
 
     $bundleId = "com.example.app"
