@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/XanhChin-Xcode-12-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/XanhChin-Xcode-12-07-2026",
+    "xcodeZip":  "Xcode-Input/XanhChin-Xcode-13-07-2026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/XanhChin-Xcode-13-07-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroXanhChin-TTM.app",
-    "outputIpa":  "NroXanhChin-TTM.ipa",
-    "artifactName":  "NroXanhChin-TTM-ipa",
-    "bundleId":  "com.nronewbie.ttmcbro",
-    "detectedAt":  "2026-07-12T06:29:00.9617036+07:00"
+    "appName":  "NroXanhChin-TTM-1307.app",
+    "outputIpa":  "NroXanhChin-TTM-1307.ipa",
+    "artifactName":  "NroXanhChin-TTM-1307-ipa",
+    "bundleId":  "com.nroxanhchin.ttmcbro",
+    "detectedAt":  "2026-07-13T03:02:52.9774461+07:00"
 }
