@@ -1,11 +1,11 @@
 {
     "xcodeZip":  "Xcode-Input/Xcode-18-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-18-07-2026",
+    "xcodeSrc":  "Xcode-Input/extracted/xcode-18-07-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroChill.app",
-    "outputIpa":  "NroChill.ipa",
-    "artifactName":  "NroChill-ipa",
-    "bundleId":  "com.nrochill.click",
-    "detectedAt":  "2026-07-18T08:24:35.8380646+07:00"
+    "appName":  "NsoLegend-Ttm.app",
+    "outputIpa":  "NsoLegend-Ttm.ipa",
+    "artifactName":  "NsoLegend-Ttm-ipa",
+    "bundleId":  "com.ngocrongwon.won29052026",
+    "detectedAt":  "2026-07-18T12:56:51.5660570+07:00"
 }
