@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-18-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/xcode-18-07-2026",
+    "xcodeZip":  "Xcode-Input/Nso-Legend-Xcode-17072026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Nso-Legend-Xcode-17072026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NsoLegend-Ttm.app",
-    "outputIpa":  "NsoLegend-Ttm.ipa",
-    "artifactName":  "NsoLegend-Ttm-ipa",
+    "appName":  "NsoLegend.app",
+    "outputIpa":  "NsoLegend.ipa",
+    "artifactName":  "NsoLegend-ipa",
     "bundleId":  "com.ngocrongwon.won29052026",
-    "detectedAt":  "2026-07-18T12:56:51.5660570+07:00"
+    "detectedAt":  "2026-07-18T20:57:03.9408759+07:00"
 }
