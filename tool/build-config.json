@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/xcode-nro2022.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/xcode-nro2022",
+    "xcodeZip":  "Xcode-Input/Nso-Legend-Xcode-19072026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Nso-Legend-Xcode-19072026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "Nro2022.app",
-    "outputIpa":  "Nro2022.ipa",
-    "artifactName":  "Nro2022-ipa",
-    "bundleId":  "com.nro2020.ttmtech",
-    "detectedAt":  "2026-07-21T22:40:44.5733542+07:00"
+    "appName":  "NsoLegend.app",
+    "outputIpa":  "NsoLegend.ipa",
+    "artifactName":  "NsoLegend-ipa",
+    "bundleId":  "com.ngocrongwon.won29052026",
+    "detectedAt":  "2026-07-22T15:23:37.1114167+07:00"
 }
