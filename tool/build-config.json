@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/nrocon-xcode-04-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/nrocon-xcode-04-07-2026",
+    "xcodeZip":  "Xcode-Input/Nso-Legend-Xcode-19072026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Nso-Legend-Xcode-19072026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroCon.app",
-    "outputIpa":  "NroCon.ipa",
-    "artifactName":  "NroCon-ipa",
-    "bundleId":  "com.nrocon.online",
-    "detectedAt":  "2026-07-24T14:37:13.2618374+07:00"
+    "appName":  "NsoLegend.app",
+    "outputIpa":  "NsoLegend.ipa",
+    "artifactName":  "NsoLegend-ipa",
+    "bundleId":  "com.nsolegend.ttmtech",
+    "detectedAt":  "2026-07-24T17:44:17.0302700+07:00"
 }
