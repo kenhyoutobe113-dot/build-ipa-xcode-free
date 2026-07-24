@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Nso-Legend-Xcode-19072026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Nso-Legend-Xcode-19072026",
+    "xcodeZip":  "Xcode-Input/Nso-Vyrion-Xcode-220726.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Nso-Vyrion-Xcode-220726",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NsoLegend.app",
-    "outputIpa":  "NsoLegend.ipa",
-    "artifactName":  "NsoLegend-ipa",
-    "bundleId":  "com.nsolegend.ttmtech",
-    "detectedAt":  "2026-07-24T17:44:17.0302700+07:00"
+    "appName":  "NsoVyrion.app",
+    "outputIpa":  "NsoVyrion.ipa",
+    "artifactName":  "NsoVyrion-ipa",
+    "bundleId":  "com.nsovyrion.ttmtech",
+    "detectedAt":  "2026-07-24T23:49:45.0240443+07:00"
 }
