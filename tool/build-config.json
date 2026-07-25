@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Nso-Vyrion-Xcode-220726.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Nso-Vyrion-Xcode-220726",
+    "xcodeZip":  "Xcode-Input/Xcode-Nrouron-250726.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Nrouron-250726",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NsoVyrion.app",
-    "outputIpa":  "NsoVyrion.ipa",
-    "artifactName":  "NsoVyrion-ipa",
-    "bundleId":  "com.nsovyrion.ttmtech",
-    "detectedAt":  "2026-07-24T23:49:45.0240443+07:00"
+    "appName":  "NgcRngUron.app",
+    "outputIpa":  "NgcRngUron.ipa",
+    "artifactName":  "NgcRngUron-ipa",
+    "bundleId":  "com.nrouron.ttmtech",
+    "detectedAt":  "2026-07-25T14:35:06.1641139+07:00"
 }
