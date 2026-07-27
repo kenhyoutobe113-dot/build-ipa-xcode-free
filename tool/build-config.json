@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-Nrouron-250726.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Nrouron-250726",
+    "xcodeZip":  "Xcode-Input/Xcode-Cbr-vn-270726.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Cbr-vn-270726",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NgcRngUron.app",
-    "outputIpa":  "NgcRngUron.ipa",
-    "artifactName":  "NgcRngUron-ipa",
-    "bundleId":  "com.nrouron.ttmtech",
-    "detectedAt":  "2026-07-25T14:35:06.1641139+07:00"
+    "appName":  "ChinBinhRng.app",
+    "outputIpa":  "ChinBinhRng.ipa",
+    "artifactName":  "ChinBinhRng-ipa",
+    "bundleId":  "com.chienbinhrong.cbrvn",
+    "detectedAt":  "2026-07-27T22:07:56.0330362+07:00"
 }
