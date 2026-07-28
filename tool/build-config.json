@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-Cbr-vn-270726.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Cbr-vn-270726",
+    "xcodeZip":  "Xcode-Input/xcode-nroking-28-07-2026.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/xcode-nroking-28-07-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "ChinBinhRng.app",
-    "outputIpa":  "ChinBinhRng.ipa",
-    "artifactName":  "ChinBinhRng-ipa",
-    "bundleId":  "com.chienbinhrong.cbrvn",
-    "detectedAt":  "2026-07-28T12:33:53.2753839+07:00"
+    "appName":  "NroKingNew.app",
+    "outputIpa":  "NroKingNew.ipa",
+    "artifactName":  "NroKingNew-ipa",
+    "bundleId":  "com.nroking.ttmtech",
+    "detectedAt":  "2026-07-28T14:36:29.0733697+07:00"
 }
