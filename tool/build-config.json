@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/xcode-nroking-28-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/xcode-nroking-28-07-2026",
+    "xcodeZip":  "Xcode-Input/xcode-nrovyron-300726.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/xcode-nrovyron-300726",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroKingNew.app",
-    "outputIpa":  "NroKingNew.ipa",
-    "artifactName":  "NroKingNew-ipa",
-    "bundleId":  "com.nroking.ttmtech",
-    "detectedAt":  "2026-07-28T14:36:29.0733697+07:00"
+    "appName":  "NsoVyrion.app",
+    "outputIpa":  "NsoVyrion.ipa",
+    "artifactName":  "NsoVyrion-ipa",
+    "bundleId":  "com.nsovyrion.ttmtech",
+    "detectedAt":  "2026-07-30T23:32:49.2323113+07:00"
 }
