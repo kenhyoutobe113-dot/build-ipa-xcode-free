@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-Slayer-030826.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Slayer-030826",
+    "xcodeZip":  "Xcode-Input/xcode-hvnro-020826.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/xcode-hvnro-020826",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroSlayer.app",
-    "outputIpa":  "NroSlayer.ipa",
-    "artifactName":  "NroSlayer-ipa",
-    "bundleId":  "com.nroslayer.ttmtech",
-    "detectedAt":  "2026-08-03T18:28:39.4226752+07:00"
+    "appName":  "HocVienNro.app",
+    "outputIpa":  "HocVienNro.ipa",
+    "artifactName":  "HocVienNro-ipa",
+    "bundleId":  "com.nrohocvien.ttmtech",
+    "detectedAt":  "2026-08-06T04:12:47.8101932+07:00"
 }
