@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-NroCayChay-080826.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-NroCayChay-080826",
+    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-080826.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-AvatarXmen-080826",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroCayChay.app",
-    "outputIpa":  "NroCayChay.ipa",
-    "artifactName":  "NroCayChay-ipa",
-    "bundleId":  "com.nrocaychay.ttmtech",
-    "detectedAt":  "2026-08-08T13:33:25.3375984+07:00"
+    "appName":  "AvatarXmen.app",
+    "outputIpa":  "AvatarXmen.ipa",
+    "artifactName":  "AvatarXmen-ipa",
+    "bundleId":  "com.AvatarXmen.AvatarXmen",
+    "detectedAt":  "2026-08-08T23:27:07.9936143+07:00"
 }
