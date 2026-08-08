@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-080826.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/Xcode-AvatarXmen-080826",
+    "xcodeZip":  "Xcode-Input/Xcode-Cbr-vn-270726.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-Cbr-vn-270726",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "AvatarXmen.app",
-    "outputIpa":  "AvatarXmen.ipa",
-    "artifactName":  "AvatarXmen-ipa",
-    "bundleId":  "com.AvatarXmen.AvatarXmen",
-    "detectedAt":  "2026-08-08T23:43:16.3465558+07:00"
+    "appName":  "ChienBinhRongVn.app",
+    "outputIpa":  "ChienBinhRongVn.ipa",
+    "artifactName":  "ChienBinhRongVn-ipa",
+    "bundleId":  "com.cbrvn.ttmtech",
+    "detectedAt":  "2026-08-09T04:37:58.2742067+07:00"
 }
