@@ -3,9 +3,9 @@
     "xcodeSrc":  "Xcode-Input/extracted/xcode-nroking-28-07-2026",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroUron.app",
-    "outputIpa":  "NroUron.ipa",
-    "artifactName":  "NroUron-ipa",
-    "bundleId":  "com.nrouronnew.ttmtech",
-    "detectedAt":  "2026-08-09T08:59:34.5815858+07:00"
+    "appName":  "NroKing.app",
+    "outputIpa":  "NroKing.ipa",
+    "artifactName":  "NroKing-ipa",
+    "bundleId":  "com.nroking.ttmtech",
+    "detectedAt":  "2026-08-09T09:32:04.7719598+07:00"
 }
