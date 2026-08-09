@@ -1,11 +1,11 @@
 {
-    "xcodeZip":  "Xcode-Input/xcode-nroking-28-07-2026.zip",
-    "xcodeSrc":  "Xcode-Input/extracted/xcode-nroking-28-07-2026",
+    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-100826.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-AvatarXmen-100826",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
-    "appName":  "NroKing.app",
-    "outputIpa":  "NroKing.ipa",
-    "artifactName":  "NroKing-ipa",
-    "bundleId":  "com.nroking.ttmtech",
-    "detectedAt":  "2026-08-09T09:32:04.7719598+07:00"
+    "appName":  "AvatarXmen.app",
+    "outputIpa":  "AvatarXmen.ipa",
+    "artifactName":  "AvatarXmen-ipa",
+    "bundleId":  "com.AvatarXmen.AvatarXmen",
+    "detectedAt":  "2026-08-10T02:09:00.1156533+07:00"
 }
