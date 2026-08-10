@@ -34,12 +34,12 @@ Write-Host "[detect] Using zip: $($zipFile.Name)"
 
 $zip = [System.IO.Compression.ZipFile]::OpenRead($zipFile.FullName)
 try {
-    $pbxEntry = Get-ZipTextEntry -Zip $zip -Pattern "\.xcodeproj/project\.pbxproj$"
+    $pbxEntry = Get-ZipTextEntry -Zip $zip -Pattern "\.xcodeproj[/\\]project\.pbxproj$"
     if (-not $pbxEntry) { throw "No .xcodeproj/project.pbxproj found inside zip." }
 
-    $pbxRel = $pbxEntry.Path -replace "/", [IO.Path]::DirectorySeparatorChar
+    $pbxRel = $pbxEntry.Path -replace "[/\\]", [IO.Path]::DirectorySeparatorChar
     $xcodeProject = Split-Path (Split-Path $pbxRel -Parent) -Leaf
-    $innerRoot = ($pbxEntry.Path -split "/")[0]
+    $innerRoot = ($pbxEntry.Path -split "[/\\]")[0]
 
     $pbxText = $pbxEntry.Text
     $appName = "App.app"
