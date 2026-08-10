@@ -1,5 +1,5 @@
 {
-    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-100826-map25.zip",
+    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-100826-map25v18.zip",
     "xcodeSrc":  "Xcode-Input/extracted/Xcode-AvatarXmen-Build",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
@@ -7,5 +7,5 @@
     "outputIpa":  "AvatarXmen.ipa",
     "artifactName":  "AvatarXmen-ipa",
     "bundleId":  "com.AvatarXmen.AvatarXmen",
-    "detectedAt":  "2026-08-10T23:26:48.1209178+07:00"
+    "detectedAt":  "2026-08-11T00:01:53.5265235+07:00"
 }
