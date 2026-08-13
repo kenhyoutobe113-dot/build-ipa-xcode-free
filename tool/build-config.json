@@ -4,8 +4,8 @@
     "xcodeSrc":  "Xcode-Input/extracted",
     "artifactName":  "AvatarXmen-ipa",
     "bundleId":  "com.AvatarXmen.AvatarXmen",
-    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-120826-v290.zip",
+    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-130826-v293.zip",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
-    "detectedAt":  "2026-08-12T19:40:10.2078639+07:00",
+    "detectedAt":  "2026-08-13T07:37:25.8192441+07:00",
     "appName":  "AvatarXmen.app"
 }
