@@ -39,7 +39,15 @@ try {
 
     $pbxRel = $pbxEntry.Path -replace "[/\\]", [IO.Path]::DirectorySeparatorChar
     $xcodeProject = Split-Path (Split-Path $pbxRel -Parent) -Leaf
-    $innerRoot = ($pbxEntry.Path -split "[/\\]")[0]
+    $parts = @($pbxEntry.Path -split "[/\\]" | Where-Object { $_ -ne "" })
+    $innerRoot = $parts[0]
+    # Zip root = project itself → extract vào Xcode-Input/extracted
+    # Zip có thư mục bọc → extract/<innerRoot>
+    if ($innerRoot -match '\.xcodeproj$') {
+        $xcodeSrcRel = "$InputDir/extracted"
+    } else {
+        $xcodeSrcRel = "$InputDir/extracted/$innerRoot"
+    }
 
     $pbxText = $pbxEntry.Text
     $appName = "App.app"
@@ -66,7 +74,7 @@ try {
 
     $config = [ordered]@{
         xcodeZip      = "$InputDir/$($zipFile.Name)" -replace "\\", "/"
-        xcodeSrc      = "$InputDir/extracted/$innerRoot" -replace "\\", "/"
+        xcodeSrc      = $xcodeSrcRel -replace "\\", "/"
         xcodeProject  = $xcodeProject
         scheme        = $scheme
         appName       = $appName
