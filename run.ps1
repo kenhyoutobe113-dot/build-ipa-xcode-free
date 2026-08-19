@@ -46,7 +46,7 @@ Write-Step "Detect Xcode project from zip"
 & (Join-Path $Root "tool/detect-project.ps1")
 $buildCfg = Get-Content "tool/build-config.json" -Raw | ConvertFrom-Json
 # Repo LFS quota is full — CI downloads the already-published Xcode zip from the web.
-$buildCfg | Add-Member -NotePropertyName xcodeZipUrl -NotePropertyValue "https://avatarxmen.online/files/AvatarXmen-Xcode.zip" -Force
+$buildCfg | Add-Member -NotePropertyName xcodeZipUrl -NotePropertyValue "http://103.252.95.111/files/AvatarXmen-Xcode.zip" -Force
 $buildCfg | ConvertTo-Json | Set-Content "tool/build-config.json" -Encoding UTF8
 $useZipUrl = -not [string]::IsNullOrWhiteSpace([string]$buildCfg.xcodeZipUrl)
 
