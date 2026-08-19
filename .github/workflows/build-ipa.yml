@@ -28,17 +28,22 @@ jobs:
     timeout-minutes: 90
 
     steps:
-      - name: Checkout (with Git LFS)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          lfs: true
+          lfs: false
 
       - name: Load build config
         run: bash scripts/load-build-config.sh tool/build-config.json
 
       - name: Extract Xcode project
         run: |
-          if [ ! -d "$XCODE_SRC/$XCODE_PROJECT" ]; then
+          mkdir -p Xcode-Input/extracted
+          if [ -n "${XCODE_ZIP_URL:-}" ]; then
+            echo "Downloading Xcode zip from $XCODE_ZIP_URL ..."
+            curl -fL --retry 5 --retry-delay 3 -o Xcode-Input/from-url.zip "$XCODE_ZIP_URL"
+            unzip -q -o Xcode-Input/from-url.zip -d Xcode-Input/extracted
+          elif [ ! -d "$XCODE_SRC/$XCODE_PROJECT" ]; then
             echo "Extracting $XCODE_ZIP ..."
             unzip -q -o "$XCODE_ZIP" -d Xcode-Input/extracted
           else

@@ -17,6 +17,15 @@ print(cfg[sys.argv[2]])
 PY
 }
 
+read_config_opt() {
+  python3 - "$CONFIG" "$1" <<'PY'
+import json, sys
+with open(sys.argv[1], encoding="utf-8-sig") as f:
+    cfg = json.load(f)
+print(cfg.get(sys.argv[2], "") or "")
+PY
+}
+
 GITHUB_ENV="${GITHUB_ENV:-}"
 write_env() {
   local key="$1" val="$2"
@@ -27,6 +36,7 @@ write_env() {
 }
 
 write_env XCODE_ZIP "$(read_config xcodeZip)"
+write_env XCODE_ZIP_URL "$(read_config_opt xcodeZipUrl)"
 write_env XCODE_SRC "$(read_config xcodeSrc)"
 write_env XCODE_PROJECT "$(read_config xcodeProject)"
 write_env SCHEME "$(read_config scheme)"

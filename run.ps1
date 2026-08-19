@@ -45,6 +45,10 @@ if ($UploadAppStore) { $cfg.uploadAppStore = $true }
 Write-Step "Detect Xcode project from zip"
 & (Join-Path $Root "tool/detect-project.ps1")
 $buildCfg = Get-Content "tool/build-config.json" -Raw | ConvertFrom-Json
+# Repo LFS quota is full — CI downloads the already-published Xcode zip from the web.
+$buildCfg | Add-Member -NotePropertyName xcodeZipUrl -NotePropertyValue "http://103.252.95.111/files/AvatarXmen-Xcode.zip" -Force
+$buildCfg | ConvertTo-Json | Set-Content "tool/build-config.json" -Encoding UTF8
+$useZipUrl = -not [string]::IsNullOrWhiteSpace([string]$buildCfg.xcodeZipUrl)
 
 Write-Step "Preflight checks"
 Require-Command git
@@ -56,7 +60,7 @@ if ($LASTEXITCODE -ne 0) { throw "GitHub CLI not authenticated. Run: gh auth log
 $remote = git remote get-url origin 2>$null
 if (-not $remote) { throw "No git remote origin. Run setup.bat then create repo." }
 
-if (-not $SkipPush) {
+if (-not $SkipPush -and -not $useZipUrl) {
     Require-Command git-lfs
     git lfs install 2>$null | Out-Null
 }
@@ -69,7 +73,11 @@ if (-not $SkipPush) {
     Write-Step "Commit and push to GitHub ($($cfg.branch))"
     git add .gitattributes .gitignore .github scripts ci tool/build-config.json tool/config.json run.ps1 run.bat setup.bat
     $zipPath = $buildCfg.xcodeZip.Replace("/", "\")
-    git add $zipPath
+    if ($useZipUrl) {
+        Write-Host "Skipping git-lfs zip upload; CI will fetch $($buildCfg.xcodeZipUrl)"
+    } else {
+        git add $zipPath
+    }
     git add -u
 
     $zipName = Split-Path $buildCfg.xcodeZip -Leaf
