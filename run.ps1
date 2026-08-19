@@ -1,4 +1,4 @@
-﻿# One-click: Xcode zip in Xcode-Input -> GitHub Actions build -> IPA in Xcode-Output
+# One-click: Xcode zip in Xcode-Input -> GitHub Actions build -> IPA in Xcode-Output
 param(
     [switch]$UploadAppStore,
     [switch]$SkipPush,
@@ -46,7 +46,7 @@ Write-Step "Detect Xcode project from zip"
 & (Join-Path $Root "tool/detect-project.ps1")
 $buildCfg = Get-Content "tool/build-config.json" -Raw | ConvertFrom-Json
 # Repo LFS quota is full — CI downloads the already-published Xcode zip from the web.
-$buildCfg | Add-Member -NotePropertyName xcodeZipUrl -NotePropertyValue "http://103.252.95.111/files/AvatarXmen-Xcode.zip" -Force
+$buildCfg | Add-Member -NotePropertyName xcodeZipUrl -NotePropertyValue "https://avatarxmen.online/files/AvatarXmen-Xcode.zip" -Force
 $buildCfg | ConvertTo-Json | Set-Content "tool/build-config.json" -Encoding UTF8
 $useZipUrl = -not [string]::IsNullOrWhiteSpace([string]$buildCfg.xcodeZipUrl)
 
@@ -150,6 +150,6 @@ Write-Host "  IPA : $dest"
 Write-Host "  Size: $([math]::Round((Get-Item $dest).Length / 1MB, 2)) MB"
 if ($cfg.unsignedBuild) {
     Write-Host ""
-    Write-Host "IPA is UNSIGNED — user must re-sign before install:" -ForegroundColor Yellow
+    Write-Host "IPA is UNSIGNED - user must re-sign before install:" -ForegroundColor Yellow
     Write-Host "  Sideloadly, AltStore, 3uTools, ESign (personal Apple ID / dev cert)"
 }
