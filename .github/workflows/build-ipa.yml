@@ -39,17 +39,44 @@ jobs:
       - name: Extract Xcode project
         run: |
           mkdir -p Xcode-Input/extracted
+          ZIP_PATH=""
           if [ -n "${XCODE_ZIP_URL:-}" ]; then
             echo "Downloading Xcode zip from $XCODE_ZIP_URL ..."
             curl -fL --retry 5 --retry-delay 3 -o Xcode-Input/from-url.zip "$XCODE_ZIP_URL"
-            unzip -q -o Xcode-Input/from-url.zip -d Xcode-Input/extracted
+            ZIP_PATH="Xcode-Input/from-url.zip"
           elif [ ! -d "$XCODE_SRC/$XCODE_PROJECT" ]; then
             echo "Extracting $XCODE_ZIP ..."
-            unzip -q -o "$XCODE_ZIP" -d Xcode-Input/extracted
+            ZIP_PATH="$XCODE_ZIP"
           else
             echo "Xcode source already present at $XCODE_SRC"
           fi
-          test -d "$XCODE_SRC/$XCODE_PROJECT" || { echo "Xcode project not found at $XCODE_SRC/$XCODE_PROJECT"; exit 1; }
+          if [ -n "$ZIP_PATH" ]; then
+            # Normalize Windows backslash zip entries (Info-ZIP leaves them as literal '\').
+            python3 - "$ZIP_PATH" Xcode-Input/extracted <<'PY'
+import os, sys, zipfile
+zip_path, dest = sys.argv[1], sys.argv[2]
+os.makedirs(dest, exist_ok=True)
+with zipfile.ZipFile(zip_path) as zf:
+    for info in zf.infolist():
+        name = info.filename.replace("\\", "/")
+        if not name or name.endswith("/"):
+            continue
+        out = os.path.join(dest, name)
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with zf.open(info) as src, open(out, "wb") as dst:
+            dst.write(src.read())
+print("extracted ok")
+PY
+          fi
+          # Resolve project dir even if zip had an outer folder
+          FOUND=$(find Xcode-Input/extracted -type d -name "$XCODE_PROJECT" | head -n 1)
+          if [ -z "$FOUND" ]; then
+            echo "Xcode project not found under Xcode-Input/extracted"; find Xcode-Input/extracted -maxdepth 3 -type d | head -40; exit 1
+          fi
+          SRC_DIR=$(dirname "$FOUND")
+          echo "XCODE_SRC=$SRC_DIR" >> "$GITHUB_ENV"
+          echo "Resolved XCODE_SRC=$SRC_DIR (project=$FOUND)"
+          test -d "$SRC_DIR/$XCODE_PROJECT"
 
       - name: Select Xcode
         run: |
