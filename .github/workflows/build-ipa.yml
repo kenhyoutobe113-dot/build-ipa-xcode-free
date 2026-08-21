@@ -51,27 +51,13 @@ jobs:
             echo "Xcode source already present at $XCODE_SRC"
           fi
           if [ -n "$ZIP_PATH" ]; then
-            # Normalize Windows backslash zip entries (Info-ZIP leaves them as literal '\').
-            python3 - "$ZIP_PATH" Xcode-Input/extracted <<'PY'
-import os, sys, zipfile
-zip_path, dest = sys.argv[1], sys.argv[2]
-os.makedirs(dest, exist_ok=True)
-with zipfile.ZipFile(zip_path) as zf:
-    for info in zf.infolist():
-        name = info.filename.replace("\\", "/")
-        if not name or name.endswith("/"):
-            continue
-        out = os.path.join(dest, name)
-        os.makedirs(os.path.dirname(out), exist_ok=True)
-        with zf.open(info) as src, open(out, "wb") as dst:
-            dst.write(src.read())
-print("extracted ok")
-PY
+            python3 scripts/extract-xcode-zip.py "$ZIP_PATH" Xcode-Input/extracted
           fi
-          # Resolve project dir even if zip had an outer folder
           FOUND=$(find Xcode-Input/extracted -type d -name "$XCODE_PROJECT" | head -n 1)
           if [ -z "$FOUND" ]; then
-            echo "Xcode project not found under Xcode-Input/extracted"; find Xcode-Input/extracted -maxdepth 3 -type d | head -40; exit 1
+            echo "Xcode project not found under Xcode-Input/extracted"
+            find Xcode-Input/extracted -maxdepth 3 -type d | head -40
+            exit 1
           fi
           SRC_DIR=$(dirname "$FOUND")
           echo "XCODE_SRC=$SRC_DIR" >> "$GITHUB_ENV"
