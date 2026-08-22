@@ -95,9 +95,13 @@ if (-not $SkipPush) {
         Start-Sleep -Seconds 8
         $runId = gh run list --workflow $cfg.workflowFile --branch $cfg.branch --limit 1 --json databaseId --jq ".[0].databaseId"
     } else {
-        # git writes progress to stderr; with $ErrorActionPreference=Stop that aborts the script
-        cmd /c "git push origin HEAD:$($cfg.branch) 2>&1"
-        if ($LASTEXITCODE -ne 0) { throw "git push failed" }
+        # git writes progress to stderr; Stop-mode treats that as a terminating error
+        $prevEap = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        git push origin "HEAD:$($cfg.branch)" 2>&1 | ForEach-Object { Write-Host $_ }
+        $pushCode = $LASTEXITCODE
+        $ErrorActionPreference = $prevEap
+        if ($pushCode -ne 0) { throw "git push failed" }
         $commit = git rev-parse HEAD
         $short = $commit.Substring(0, 7)
         Write-Host "Waiting for workflow to start (commit $short)..."
