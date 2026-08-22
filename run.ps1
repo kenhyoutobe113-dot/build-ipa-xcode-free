@@ -95,7 +95,8 @@ if (-not $SkipPush) {
         Start-Sleep -Seconds 8
         $runId = gh run list --workflow $cfg.workflowFile --branch $cfg.branch --limit 1 --json databaseId --jq ".[0].databaseId"
     } else {
-        git push origin "HEAD:$($cfg.branch)" 2>&1 | Write-Host
+        # git writes progress to stderr; with $ErrorActionPreference=Stop that aborts the script
+        cmd /c "git push origin HEAD:$($cfg.branch) 2>&1"
         if ($LASTEXITCODE -ne 0) { throw "git push failed" }
         $commit = git rev-parse HEAD
         $short = $commit.Substring(0, 7)
