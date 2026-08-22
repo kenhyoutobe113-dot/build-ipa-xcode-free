@@ -1,12 +1,12 @@
 ﻿{
-    "xcodeZip":  "Xcode-Input/AvatarXmen-Xcode-21054.zip",
-    "xcodeSrc":  "Xcode-Input/extracted",
+    "xcodeZip":  "Xcode-Input/Xcode-AvatarXmen-220826-1928-shop981.zip",
+    "xcodeSrc":  "Xcode-Input/extracted/Xcode-AvatarXmen-Build",
     "xcodeProject":  "Unity-iPhone.xcodeproj",
     "scheme":  "Unity-iPhone",
     "appName":  "AvatarXmen.app",
     "outputIpa":  "AvatarXmen.ipa",
     "artifactName":  "AvatarXmen-ipa",
     "bundleId":  "com.AvatarXmen.AvatarXmen",
-    "detectedAt":  "2026-08-22T14:19:36.5546497+07:00",
+    "detectedAt":  "2026-08-22T19:28:13.7107847+07:00",
     "xcodeZipUrl":  "http://103.252.95.111/files/AvatarXmen-Xcode.zip"
 }
